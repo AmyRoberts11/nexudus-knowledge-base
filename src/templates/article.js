@@ -14,7 +14,7 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
     [INLINES.HYPERLINK]: (node) => {
       if (node.data.uri.indexOf('youtube.com') !== -1) {
         return (
-          <div className={styles.videoHolder}>
+          <div className="container">
             <iframe
               id="ytplayer"
               src={node.data.uri}
