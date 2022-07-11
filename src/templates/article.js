@@ -14,23 +14,18 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
     [INLINES.HYPERLINK]: (node) => {
       if (node.data.uri.indexOf('youtube.com') !== -1) {
         return (
-          <div className="container">
+          <IframeContainer>
             <iframe
-              id="ytplayer"
               src={node.data.uri}
-              type="text/html"
-              width="640"
-              height="360"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture ; fullscreen"
             />
-          </div>
+          </IframeContainer>
         );
       } else
         return (
           <IframeContainer>
           <iframe
-            id="ytplayer"
             src={node.data.uri}
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture ; fullscreen"
