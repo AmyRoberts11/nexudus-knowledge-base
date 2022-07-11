@@ -1,7 +1,7 @@
 import React from 'react';
 import is from 'prop-types';
 import { graphql } from 'gatsby';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from '@emotion/styled';
 import Layout from './layout';
@@ -11,6 +11,33 @@ import SEO from '../components/seo';
 
 const rendererOptions = ({ locale = 'en-US' }) => ({
   renderNode: {
+    [INLINES.HYPERLINK]: (node) => {
+      if (node.data.uri.indexOf('youtube.com') !== -1) {
+        return (
+          <div className={styles.videoHolder}>
+            <iframe
+              id="ytplayer"
+              src={node.data.uri}
+              type="text/html"
+              width="640"
+              height="360"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture ; fullscreen"
+            />
+          </div>
+        );
+      } else
+        return (
+          <a
+            href={node.data.uri}
+            target={`${node.data.uri.startsWith(website_url) ? '_self' : '_blank'}`}
+            rel={`${node.data.uri.startsWith(website_url) ? '' : 'noopener noreferrer'}`}
+          >
+            {node.content[0].value}
+          </a>
+        );
+    },
+
     [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
       // check for assets only
       if (data.target.sys.type !== 'Asset') return;
