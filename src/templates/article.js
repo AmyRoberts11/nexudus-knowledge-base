@@ -28,17 +28,14 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
         );
       } else
         return (
-          <div>
+          <IframeContainer>
           <iframe
             id="ytplayer"
             src={node.data.uri}
-            type="text/html"
-            width="640"
-            height="360"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture ; fullscreen"
           />
-        </div>
+        </IframeContainer>
         );
     },
 
@@ -70,6 +67,20 @@ const ArticleTitle = styled.h1`
     margin-bottom: 20px;
   }
 `;
+
+const IframeContainer = styled.span`
+  padding-bottom: 56.25%; 
+  position: relative; 
+  display: block; 
+  width: 100%;
+
+  > iframe {
+    height: 100%;
+    width: 100%;
+    position: absolute; 
+    top: 0; 
+    left: 0;
+  }`
 
 const ArticleContentContainer = styled.section`
   padding: 32px 94px;
