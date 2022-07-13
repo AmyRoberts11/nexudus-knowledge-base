@@ -35,11 +35,7 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
 
     [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
       // check for assets only
-      if (data.target.sys.type !== 'Asset') return;
-
-      // check for images only
-      if (data.target.fields.file[locale].contentType.startsWith('image')) {
-        return (
+      if (data.target.sys.type.linkType !== 'Asset') return (
           <img
             src={data.target.fields.file[locale].url}
             alt={data.target.fields.title[locale]}
@@ -47,8 +43,8 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
         );
       }
     },
-  },
-});
+  }
+);
 
 const ArticleTitle = styled.h1`
   margin-bottom: 32px;
