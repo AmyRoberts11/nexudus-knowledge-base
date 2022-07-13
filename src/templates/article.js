@@ -36,8 +36,8 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
     [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
       return (
           <img
-            src={data.fields.file[locale].url}
-            alt={data.fields.title[locale]}
+            src={data.fields.file.url}
+            alt={data.fields.title}
           />
         );
       }
