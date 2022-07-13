@@ -53,7 +53,7 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
 const ArticleTitle = styled.h1`
   margin-bottom: 32px;
 
-  color: #2a3039;
+  color: #F66161;
   font-weight: 700;
   font-size: 28px;
 
