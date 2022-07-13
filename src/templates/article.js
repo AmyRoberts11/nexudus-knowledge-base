@@ -12,7 +12,7 @@ import SEO from '../components/seo';
 const rendererOptions = ({ locale = 'en-US' }) => ({
   renderNode: {
     [INLINES.HYPERLINK]: (node) => {
-      if (node.data.uri.indexOf('youtube.com') !== -1) {
+     if (node.data.uri.indexOf('scribehow.com') !== -1) {
         return (
           <IframeContainer>
             <iframe
@@ -22,16 +22,7 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
             />
           </IframeContainer>
         );
-      } else
-        return (
-          <IframeContainer>
-          <iframe
-            src={node.data.uri}
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture ; fullscreen"
-          />
-        </IframeContainer>
-        );
+      }
     },
 
     [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
