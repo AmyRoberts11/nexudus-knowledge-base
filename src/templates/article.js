@@ -22,8 +22,17 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
             />
           </IframeContainer>
         );
-      }
-    },
+   } else
+    return (
+      
+      <a
+      href={node.data.uri}
+      target='_blank'
+      rel='noopener noreferrer'
+      ></a>
+
+    );
+},
 
     [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
       // check for assets only
