@@ -24,11 +24,11 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
         );
    } else
     return (
-      <a
-      href={node.data.uri}
-      target='_blank'
-      rel='noopener noreferrer'
-      ></a>
+      <><p>Hello</p><a
+        href={node.data.uri}
+        target='_blank'
+        rel='noopener noreferrer'
+      ></a></>
 
     );
 },
