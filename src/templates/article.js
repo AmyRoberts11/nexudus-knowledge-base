@@ -11,7 +11,7 @@ import SEO from '../components/seo';
 
 const rendererOptions = ({ locale = 'en-US' }) => ({
   renderNode: {
-    [INLINES.HYPERLINK]: (node) => {
+    [INLINES.HYPERLINK]: (node, children) => {
      if (node.data.uri.indexOf('scribehow.com') !== -1) {
         return (
           <IframeContainer>
@@ -25,7 +25,7 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
    } else
     return (
       <a
-      href={data.uri}
+      href={node.data.uri}
       target='_blank'
       rel='noopener noreferrer'
       ></a>
