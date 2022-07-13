@@ -33,11 +33,12 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
     );
 },
 
-    [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+    const { title, file } = node.data.target.fields;
       return (
           <img
-            src={data.fields.file.url}
-            alt={data.fields.title}
+            src={file.url}
+            alt={title}
           />
         );
       }
