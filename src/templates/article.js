@@ -34,8 +34,7 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
 },
 
     [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
-      // check for assets only
-      if (data.target.sys.type.linkType = 'Asset') return (
+      return (
           <img
             src={data.target.fields.file[locale].url}
             alt={data.target.fields.title[locale]}
