@@ -24,9 +24,8 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
         );
    } else
     return (
-      
       <a
-      href={node.data.uri}
+      href={data.uri}
       target='_blank'
       rel='noopener noreferrer'
       ></a>
