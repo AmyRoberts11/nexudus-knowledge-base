@@ -31,17 +31,7 @@ const rendererOptions = ({ locale = 'en-US' }) => ({
       >{children}</a>
 
     );
-},
-
-    [BLOCKS.EMBEDDED_ASSET]: (node) => {
-    const { file } = node.data.target.fields;
-      return (
-          <img
-            src={file.url}
-            alt="alt text"
-          />
-        );
-      }
+},   
     },
   }
 );
